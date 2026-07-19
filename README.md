@@ -1,18 +1,8 @@
 # Medical Tourism Package Recommender
 
-A Natural Language Processing (NLP) project that recommends the most suitable medical tourism package based on a patient's text description.
+A Natural Language Processing (NLP) project that predicts the most appropriate medical tourism package based on a patient's medical description using TensorFlow and Keras.
 
-## Features
-
-- Text preprocessing
-- Label encoding
-- Tokenization
-- Sequence padding
-- Embedding layer
-- Neural network classification
-- Medical package prediction
-
-## Packages
+## Available Medical Packages
 
 - Cardiac
 - Cosmetic
@@ -22,14 +12,27 @@ A Natural Language Processing (NLP) project that recommends the most suitable me
 - Neurology
 - Orthopedic
 
+## Features
+
+- Medical text preprocessing
+- Multi-class text classification
+- Word embedding with Keras Embedding layer
+- Automatic package recommendation
+- Confidence score for each predicted package
+
 ## Tech Stack
 
 - Python
-- TensorFlow
-- Keras
+- TensorFlow / Keras
+- Scikit-learn
 - Pandas
 - NumPy
-- Scikit-learn
+
+## Dataset
+
+- 196 medical text samples
+- 7 medical packages
+- 28 samples per package
 
 ## Project Structure
 
@@ -41,37 +44,43 @@ medical-tourism-package-recommender/
 └── README.md
 ```
 
-## Dataset
-
-- 7 medical packages
-- 28 text samples per package
-- 196 total samples
-
 ## Example
 
 **Input**
 
 ```text
-I have severe eye pain and blurry vision
+I have severe eye pain and blurry vision.
 ```
 
 **Output**
 
 ```text
 Recommended Package: Eye
+
+Cardiac     : 0.136
+Cosmetic    : 0.097
+Dental      : 0.146
+Eye          : 0.225
+Fertility   : 0.135
+Neurology   : 0.120
+Orthopedic  : 0.141
+```
+
+## Installation
+
+```bash
+pip install tensorflow pandas numpy scikit-learn
 ```
 
 ## Run
 
 ```bash
-pip install tensorflow pandas numpy scikit-learn
-
 python nlp_package_recommender.py
 ```
 
 ## Future Improvements
 
-- Increase dataset size
-- Use LSTM/Bidirectional LSTM
-- Save and load trained models
-- Build a web interface
+- Expand the dataset
+- Improve text preprocessing
+- Experiment with LSTM and Bidirectional LSTM
+- Deploy as a web application
