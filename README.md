@@ -30,9 +30,9 @@ A Natural Language Processing (NLP) project that predicts the most appropriate m
 
 ## Dataset
 
-- 196 medical text samples
+- 420 medical text samples
 - 7 medical packages
-- 28 samples per package
+- 60 samples per package
 
 ## Project Structure
 
