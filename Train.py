@@ -180,33 +180,15 @@ history = model.fit(
 
 
 # ============================================
-# 14. Predict New Message
+# 14. Save Model & Objects
 # ============================================
 
-new_text = [
-    "I have severe eye pain and blurry vision"
-]
+import joblib
 
-new_sequence = tokenizer.texts_to_sequences(new_text)
+model.save("medical_package_model.keras")
 
-new_sequence = pad_sequences(
-    new_sequence,
-    maxlen=X.shape[1],
-    padding="post"
-)
+joblib.dump(tokenizer, "tokenizer.pkl")
 
-prediction = model.predict(new_sequence)
+joblib.dump(encoder, "encoder.pkl")
 
-predicted_class = np.argmax(prediction)
-
-package = encoder.inverse_transform([predicted_class])
-
-print("Recommended Package:", package[0])
-
-print("\nPrediction Probabilities:\n")
-
-for label, prob in zip(encoder.classes_, prediction[0]):
-    print(f"{label:<12}: {prob:.3f}")
-
-print("\nRaw Prediction:")
-print(np.round(prediction, 3))
+print("Model saved successfully!")
