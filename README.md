@@ -1,6 +1,6 @@
 # Medical Tourism Package Recommender
 
-A Natural Language Processing (NLP) project that predicts the most appropriate medical tourism package from a patient's medical description using TensorFlow, Keras, and a Flask REST API.
+A Natural Language Processing (NLP) project that recommends the most appropriate medical tourism package based on a patient's symptom description using TensorFlow/Keras and a Flask web application.
 
 ## Available Medical Packages
 
@@ -16,10 +16,10 @@ A Natural Language Processing (NLP) project that predicts the most appropriate m
 
 - Medical text preprocessing
 - Multi-class text classification
-- Word embedding with Keras Embedding layer
-- Automatic package recommendation
-- Prediction confidence scores
+- Word embeddings using the Keras Embedding layer
+- Automatic medical package recommendation
 - Flask REST API
+- Simple web interface for real-time predictions
 
 ## Tech Stack
 
@@ -33,13 +33,16 @@ A Natural Language Processing (NLP) project that predicts the most appropriate m
 ## Dataset
 
 - 420 medical text samples
-- 7 medical packages
-- 60 samples per package
+- 7 medical package categories
+- 60 samples per category
 
 ## Project Structure
 
 ```text
 medical-tourism-package-recommender/
+│
+├── templates/
+│   └── index.html
 │
 ├── app.py
 ├── train.py
@@ -50,6 +53,10 @@ medical-tourism-package-recommender/
 ├── requirements.txt
 └── README.md
 ```
+
+## Web Application
+
+Users can enter a medical description in the web interface, and the trained NLP model predicts the most appropriate medical tourism package.
 
 ## API Example
 
@@ -79,21 +86,29 @@ POST /predict
 pip install -r requirements.txt
 ```
 
-## Train Model
+## Train the Model
 
 ```bash
 python train.py
 ```
 
-## Run API
+## Run the Application
 
 ```bash
 python app.py
+```
+
+Then open your browser and visit:
+
+```text
+http://127.0.0.1:5000
 ```
 
 ## Future Improvements
 
 - Expand the dataset
 - Improve text preprocessing
+- Display prediction confidence scores
 - Experiment with LSTM and Bidirectional LSTM
+- Deploy the application
 - Docker support
