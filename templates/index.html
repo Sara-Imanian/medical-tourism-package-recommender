@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Package Recommender</title>
+</head>
+
+<body>
+
+    <h1>Medical Package Recommender</h1>
+
+    <textarea
+        id="message"
+        rows="8"
+        cols="60"
+        placeholder="Describe your symptoms..."
+    ></textarea>
+
+    <br><br>
+
+    <button id="predictBtn">
+        Predict Package
+    </button>
+
+    <h2>Recommended Package:</h2>
+
+    <p id="result">
+        -
+    </p>
+
+    <script>
+    const button = document.getElementById("predictBtn");
+
+    button.addEventListener("click", async () => {
+
+        const message = document.getElementById("message").value;
+
+        const response = await fetch("/predict", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                message: message
+            })
+        });
+
+        const data = await response.json();
+
+        document.getElementById("result").textContent = data.package;
+    });
+</script>
+
+</body>
+</html>

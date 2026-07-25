@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 
 from tensorflow import keras
 from tensorflow.keras.preprocessing.sequence import pad_sequences
@@ -14,7 +14,7 @@ encoder = joblib.load("encoder.pkl")
 
 @app.route("/")
 def home():
-    return "Medical Tourism API is running!"
+    return render_template("index.html")
 
 @app.route("/predict", methods=["POST"])
 def predict():
