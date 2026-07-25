@@ -1,6 +1,6 @@
 # Medical Tourism Package Recommender
 
-A Natural Language Processing (NLP) project that predicts the most appropriate medical tourism package based on a patient's medical description using TensorFlow and Keras.
+A Natural Language Processing (NLP) project that recommends the most appropriate medical tourism package based on a patient's symptom description using TensorFlow/Keras and a Flask web application.
 
 ## Available Medical Packages
 
@@ -16,14 +16,16 @@ A Natural Language Processing (NLP) project that predicts the most appropriate m
 
 - Medical text preprocessing
 - Multi-class text classification
-- Word embedding with Keras Embedding layer
-- Automatic package recommendation
-- Confidence score for each predicted package
+- Word embeddings using the Keras Embedding layer
+- Automatic medical package recommendation
+- Flask REST API
+- Simple web interface for real-time predictions
 
 ## Tech Stack
 
 - Python
 - TensorFlow / Keras
+- Flask
 - Scikit-learn
 - Pandas
 - NumPy
@@ -31,56 +33,82 @@ A Natural Language Processing (NLP) project that predicts the most appropriate m
 ## Dataset
 
 - 420 medical text samples
-- 7 medical packages
-- 60 samples per package
+- 7 medical package categories
+- 60 samples per category
 
 ## Project Structure
 
 ```text
 medical-tourism-package-recommender/
 │
+├── templates/
+│   └── index.html
+│
+├── app.py
+├── train.py
+├── medical_package_model.keras
+├── tokenizer.pkl
+├── encoder.pkl
 ├── medical_tourism_dataset.csv
-├── nlp_package_recommender.py
+├── requirements.txt
 └── README.md
 ```
 
-## Example
+## Web Application
 
-**Input**
+Users can enter a medical description in the web interface, and the trained NLP model predicts the most appropriate medical tourism package.
 
-```text
-I have severe eye pain and blurry vision.
+## API Example
+
+### Request
+
+```http
+POST /predict
 ```
 
-**Output**
+```json
+{
+    "message": "I have severe eye pain and blurry vision"
+}
+```
 
-```text
-Recommended Package: Eye
+### Response
 
-Cardiac     : 0.136
-Cosmetic    : 0.097
-Dental      : 0.146
-Eye          : 0.225
-Fertility   : 0.135
-Neurology   : 0.120
-Orthopedic  : 0.141
+```json
+{
+    "package": "Eye"
+}
 ```
 
 ## Installation
 
 ```bash
-pip install tensorflow pandas numpy scikit-learn
+pip install -r requirements.txt
 ```
 
-## Run
+## Train the Model
 
 ```bash
-python nlp_package_recommender.py
+python train.py
+```
+
+## Run the Application
+
+```bash
+python app.py
+```
+
+Then open your browser and visit:
+
+```text
+http://127.0.0.1:5000
 ```
 
 ## Future Improvements
 
 - Expand the dataset
 - Improve text preprocessing
+- Display prediction confidence scores
 - Experiment with LSTM and Bidirectional LSTM
-- Deploy as a web application
+- Deploy the application
+- Docker support
