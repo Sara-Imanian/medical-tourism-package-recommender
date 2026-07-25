@@ -1,6 +1,6 @@
 # Medical Tourism Package Recommender
 
-A Natural Language Processing (NLP) project that predicts the most appropriate medical tourism package based on a patient's medical description using TensorFlow and Keras.
+A Natural Language Processing (NLP) project that predicts the most appropriate medical tourism package from a patient's medical description using TensorFlow, Keras, and a Flask REST API.
 
 ## Available Medical Packages
 
@@ -18,12 +18,14 @@ A Natural Language Processing (NLP) project that predicts the most appropriate m
 - Multi-class text classification
 - Word embedding with Keras Embedding layer
 - Automatic package recommendation
-- Confidence score for each predicted package
+- Prediction confidence scores
+- Flask REST API
 
 ## Tech Stack
 
 - Python
 - TensorFlow / Keras
+- Flask
 - Scikit-learn
 - Pandas
 - NumPy
@@ -39,43 +41,54 @@ A Natural Language Processing (NLP) project that predicts the most appropriate m
 ```text
 medical-tourism-package-recommender/
 │
+├── app.py
+├── train.py
+├── medical_package_model.keras
+├── tokenizer.pkl
+├── encoder.pkl
 ├── medical_tourism_dataset.csv
-├── nlp_package_recommender.py
+├── requirements.txt
 └── README.md
 ```
 
-## Example
+## API Example
 
-**Input**
+### Request
 
-```text
-I have severe eye pain and blurry vision.
+```http
+POST /predict
 ```
 
-**Output**
+```json
+{
+    "message": "I have severe eye pain and blurry vision"
+}
+```
 
-```text
-Recommended Package: Eye
+### Response
 
-Cardiac     : 0.136
-Cosmetic    : 0.097
-Dental      : 0.146
-Eye          : 0.225
-Fertility   : 0.135
-Neurology   : 0.120
-Orthopedic  : 0.141
+```json
+{
+    "package": "Eye"
+}
 ```
 
 ## Installation
 
 ```bash
-pip install tensorflow pandas numpy scikit-learn
+pip install -r requirements.txt
 ```
 
-## Run
+## Train Model
 
 ```bash
-python nlp_package_recommender.py
+python train.py
+```
+
+## Run API
+
+```bash
+python app.py
 ```
 
 ## Future Improvements
@@ -83,4 +96,4 @@ python nlp_package_recommender.py
 - Expand the dataset
 - Improve text preprocessing
 - Experiment with LSTM and Bidirectional LSTM
-- Deploy as a web application
+- Docker support
