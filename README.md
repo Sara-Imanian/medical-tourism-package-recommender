@@ -2,7 +2,7 @@
 
 A Natural Language Processing (NLP) project that recommends the most appropriate medical tourism package based on a patient's symptom description using TensorFlow/Keras and a Flask web application.
 
-## Available Medical Packages
+## Medical categories
 
 - Cardiac
 - Cosmetic
@@ -33,7 +33,7 @@ A Natural Language Processing (NLP) project that recommends the most appropriate
 ## Dataset
 
 - 420 medical text samples
-- 7 medical package categories
+- 7 medical categories
 - 60 samples per category
 
 ## Project Structure
@@ -56,7 +56,7 @@ medical-text-classification/
 
 ## Web Application
 
-Users can enter a medical description in the web interface, and the trained NLP model predicts the most appropriate medical tourism package.
+Users can enter a medical description in the web interface, and the trained NLP model predicts the most appropriate medical category.
 
 ## API Example
 
