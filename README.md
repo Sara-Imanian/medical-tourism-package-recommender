@@ -1,6 +1,6 @@
 # Medical-text-classification
 
-A Natural Language Processing (NLP) project that recommends the most appropriate medical tourism package based on a patient's symptom description using TensorFlow/Keras and a Flask web application.
+A Natural Language Processing (NLP) project that recommends the most appropriate medical category based on a patient's symptom description using TensorFlow/Keras and a Flask web application.
 
 ## Medical categories
 
