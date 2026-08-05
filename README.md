@@ -39,7 +39,7 @@ A Natural Language Processing (NLP) project that recommends the most appropriate
 ## Project Structure
 
 ```text
-medical-tourism-package-recommender/
+medical-text-classification/
 │
 ├── templates/
 │   └── index.html
@@ -49,7 +49,7 @@ medical-tourism-package-recommender/
 ├── medical_package_model.keras
 ├── tokenizer.pkl
 ├── encoder.pkl
-├── medical_tourism_dataset.csv
+├── medical_comments_dataset.csv
 ├── requirements.txt
 └── README.md
 ```
